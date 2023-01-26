@@ -6,6 +6,7 @@
     "@acala-network/api": "^4.1.8-2.3",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.0",
     "@polkadot/api": "^9.10.3",
     "@testing-library/jest-dom": "^5.16.5",
