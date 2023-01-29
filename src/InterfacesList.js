@@ -1,8 +1,11 @@
 import CircularProgress from "@mui/material/CircularProgress";
-import { List, ListItemText, ListItem, ListItemButton, Box } from "@mui/material";
+import { List, ListItemText, ListItem } from "@mui/material"
+import { ListItemButton, Box } from "@mui/material";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import SubInterfacesList from "./SubInterfacesList";
+import { Fragment } from "react";
+
 export default function InterfacesList(props) {
 
   function constantClick(clickedID) {
@@ -35,12 +38,12 @@ export default function InterfacesList(props) {
       <List>
         {
           Object.entries(props.interfaces).map(([key, value]) => (
-            <>
+            <Fragment key={value.name}>
               <ListItemButton
-                key={key.toString()}
                 onClick={() => constantClick(key)}
-                selected={value.selected}>
-                <ListItem key={key.toString()} disablePadding>
+                selected={value.selected}
+              >
+                <ListItem disablePadding>
                   <ListItemText primary={value.name}/> {
                     value.selected ?
                       <KeyboardArrowDownIcon /> :
@@ -48,8 +51,10 @@ export default function InterfacesList(props) {
                   }
                 </ListItem>
               </ListItemButton>
-              { value.selected && <SubInterfacesList subInterfaces={props.topDetails}/> }
-            </>
+              { value.selected &&
+                <SubInterfacesList subInterfaces={props.topDetails}/>
+              }
+            </Fragment>
           ))
         }
       </List>
