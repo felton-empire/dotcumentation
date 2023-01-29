@@ -41,5 +41,5 @@ export async function getInterfaces(api, interfaceEndpoint) {
 
 export async function getInterfacesTopSelected(api, interfaceEndpoint, interfaceTopSelectedName) {
   const interfaceTopSelected = await eval("api." + interfaceEndpoint + "." + interfaceTopSelectedName)
-  return JSON.stringify(interfaceTopSelected, null, 4)
+  return interfaceTopSelected
 }

@@ -1,6 +1,6 @@
 import "./App.css";
 import ApiDropdown from "./ApiDropdown.js";
-import { setupApi } from "./api"
+import {getInterfacesTopSelected, setupApi} from "./api";
 import { apiList, interfacesListFromVars } from "./vars";
 import { theme } from "./Theme.js";
 import InstancesNavDrawer from "./InstancesNavDrawer";
@@ -19,6 +19,7 @@ export default function App() {
   const [interfacesList, setInterfacesList] = useState(interfacesListFromVars)
   const [interfaceSelected, setInterfaceSelected] = useState(interfacesList[0].endpoint)
   const [interfaceTopSelected, setInterfaceTopSelected] = useState()
+  const [topDetails, setTopDetails] = useState("")
 
   useEffect(() => {
     async function connectApi() {
@@ -28,6 +29,19 @@ export default function App() {
     }
     connectApi();
   }, [apiConnected]);
+
+  useEffect(() => {
+    async function getTopDetails() {
+      if (interfaceTopSelected) {
+        const details = await getInterfacesTopSelected(
+          api,
+          interfaceSelected,
+          interfaceTopSelected)
+        setTopDetails(details)
+      }
+    }
+    getTopDetails()
+  }, [interfaceTopSelected]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -66,7 +80,8 @@ export default function App() {
             setInterfaces={setInterfaces}
             api={api}
             setApi={setApi}
-            setInterfaceTopSelected={setInterfaceTopSelected}/>
+            setInterfaceTopSelected={setInterfaceTopSelected}
+            topDetails={topDetails}/>
           <Box component="main" sx={{
             flexgrow:1, p: 2
           }}>
@@ -74,7 +89,8 @@ export default function App() {
             <InterfaceDetail
               interfaceTopSelected={interfaceTopSelected}
               api={api}
-              interfaceSelected={interfaceSelected}/>
+              interfaceSelected={interfaceSelected}
+              topDetails={topDetails}/>
           </Box>
           </Box>
     </ThemeProvider>
