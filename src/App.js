@@ -19,7 +19,7 @@ export default function App() {
   const [interfacesList, setInterfacesList] = useState(interfacesListFromVars)
   const [interfaceSelected, setInterfaceSelected] = useState(interfacesList[0].endpoint)
   const [interfaceTopSelected, setInterfaceTopSelected] = useState()
-  const [topDetails, setTopDetails] = useState("")
+  const [topDetails, setTopDetails] = useState(false)
 
   useEffect(() => {
     async function connectApi() {
