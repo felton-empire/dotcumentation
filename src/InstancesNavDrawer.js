@@ -1,5 +1,5 @@
-import { Drawer, List, Toolbar, Box } from "@mui/material";
-import Interfaces from "./Interfaces.js";
+import { Drawer, Toolbar, Box } from "@mui/material";
+import InterfacesList from "./InterfacesList.js";
 
 export default function InstancesNavDrawer(props) {
   const drawerWidth = 250
@@ -12,9 +12,7 @@ export default function InstancesNavDrawer(props) {
       }}>
       <Toolbar />
       <Box sx={{ overflow: "auto"}}>
-      <List>
-        <Interfaces { ... props }/>
-      </List>
+        <InterfacesList { ... props }/>
       </Box>
     </Drawer>
   )
