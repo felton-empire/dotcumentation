@@ -20,6 +20,7 @@ export default function App() {
   const [interfaceSelected, setInterfaceSelected] = useState(interfacesList[0].endpoint)
   const [interfaceTopSelected, setInterfaceTopSelected] = useState()
   const [topDetails, setTopDetails] = useState(false)
+  const [subInterfaceSelected, setSubInterfaceSelected] = useState(false)
 
   useEffect(() => {
     async function connectApi() {
@@ -81,7 +82,10 @@ export default function App() {
             api={api}
             setApi={setApi}
             setInterfaceTopSelected={setInterfaceTopSelected}
-            topDetails={topDetails}/>
+            topDetails={topDetails}
+            setTopDetails={setTopDetails}
+            setSubInterfaceSelected={setSubInterfaceSelected}
+          />
           <Box component="main" sx={{
             flexgrow:1, p: 2
           }}>
@@ -90,7 +94,9 @@ export default function App() {
               interfaceTopSelected={interfaceTopSelected}
               api={api}
               interfaceSelected={interfaceSelected}
-              topDetails={topDetails}/>
+              topDetails={topDetails}
+              subInterfaceSelected={subInterfaceSelected}
+            />
           </Box>
           </Box>
     </ThemeProvider>

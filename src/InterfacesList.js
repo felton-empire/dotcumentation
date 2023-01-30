@@ -52,7 +52,11 @@ export default function InterfacesList(props) {
                 </ListItem>
               </ListItemButton>
               { value.selected &&
-                <SubInterfacesList subInterfaces={props.topDetails}/>
+                <SubInterfacesList
+                  topDetails={props.topDetails}
+                  setTopDetails={props.setTopDetails}
+                  setSubInterfaceSelected={props.setSubInterfaceSelected}
+                />
               }
             </Fragment>
           ))
