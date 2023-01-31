@@ -1,20 +1,19 @@
-import CircularProgress from "@mui/material/CircularProgress";
-import { List, ListItemText, ListItem } from "@mui/material"
+import { Fragment } from "react";
+import { List, ListItemText, ListItem, CircularProgress } from "@mui/material"
 import { ListItemButton, Box } from "@mui/material";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import SubInterfacesList from "./SubInterfacesList";
-import { Fragment } from "react";
+import InterfaceMethodsList from "./InterfaceMethodsList";
 
 export default function InterfacesList(props) {
 
-  function constantClick(clickedID) {
+  function interfaceClick(clickedID) {
     const newInterfaces = props.interfaces.map((value, key) => {
       if (value.selected === true) {
         if (key === Number(clickedID)) {
           // Clicked the opened interface a second time. Close it
           value.selected = false
-          props.setInterfaceTopSelected()
+          props.setInterfaceSelected()
           return value
         }
         // Resetting old selected value
@@ -22,7 +21,7 @@ export default function InterfacesList(props) {
       }
       if (key === Number(clickedID)) {
         value.selected = true
-        props.setInterfaceTopSelected(value.name)
+        props.setInterfaceSelected(value.name)
         return value
       } else {
         return value
@@ -40,7 +39,7 @@ export default function InterfacesList(props) {
           Object.entries(props.interfaces).map(([key, value]) => (
             <Fragment key={value.name}>
               <ListItemButton
-                onClick={() => constantClick(key)}
+                onClick={() => interfaceClick(key)}
                 selected={value.selected}
               >
                 <ListItem disablePadding>
@@ -52,10 +51,11 @@ export default function InterfacesList(props) {
                 </ListItem>
               </ListItemButton>
               { value.selected &&
-                <SubInterfacesList
-                  topDetails={props.topDetails}
-                  setTopDetails={props.setTopDetails}
-                  setSubInterfaceSelected={props.setSubInterfaceSelected}
+                <InterfaceMethodsList
+                  interfaceDetails={props.interfaceDetails}
+                  setInterfaceDetails={props.setInterfaceDetails}
+                  setInterfaceSelected={props.setInterfaceSelected}
+                  setInterfaceMethod={props.setInterfaceMethod}
                 />
               }
             </Fragment>
