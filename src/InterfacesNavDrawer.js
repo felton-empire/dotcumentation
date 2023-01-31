@@ -1,7 +1,7 @@
 import { Drawer, Toolbar, Box } from "@mui/material";
 import InterfacesList from "./InterfacesList.js";
 
-export default function InstancesNavDrawer(props) {
+export default function InterfacesNavDrawer(props) {
   const drawerWidth = 250
   return (
     <Drawer variant="permanent" anchor="left"

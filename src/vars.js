@@ -41,7 +41,7 @@ export const apiList =[
   }
 ]
 
-export const interfacesListFromVars = [
+export const interfaceCategoryList = [
   {
     name: "Constants",
     endpoint: "api.consts",

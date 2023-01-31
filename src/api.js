@@ -15,31 +15,31 @@ export async function setupApi(apiObject) {
   }
 
   if (apiObject.api === undefined) {
-    console.log("I'm at a new connection")
+    // New connection
     return await connect()
   } else if ( apiObject.endpoint != apiObject.provider.__private_8_endpoints[0] ) {
-    console.log("I'm at a new enpoint selected")
+    // New endpoint selected
     await apiObject.provider.disconnect()
     return await connect()
   } else {
-    console.log("Just reusing the existing endpoint")
+    // Reusing the existing connection
     return apiObject
   }
 }
 
-export async function getInterfaces(api, interfaceEndpoint) {
-  const interfaceList = await eval("api." + interfaceEndpoint)
-  let interfacesArray = Object.entries(interfaceList).map((constantName, value) => (
+export async function getInterfaces(api, interfaceCategory) {
+  const interfacesList = await eval("api." + interfaceCategory)
+  let interfacesArray = Object.entries(interfacesList).map((interfaceName, value) => (
       {
-        "name": constantName[0],
+        "name": interfaceName[0],
         "selected": false,
-        "details": constantName[1]
+        "details": interfaceName[1]
       })
   )
   return interfacesArray
 }
 
-export async function getInterfacesTopSelected(api, interfaceEndpoint, interfaceTopSelectedName) {
-  const interfaceTopSelected = await eval("api." + interfaceEndpoint + "." + interfaceTopSelectedName)
-  return interfaceTopSelected
+export async function getInterfaceMethods(api, interfaceCategory, interfaceName) {
+  const interfaceMethods = await eval("api." + interfaceCategory + "." + interfaceName)
+  return interfaceMethods
 }
