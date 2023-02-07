@@ -3,12 +3,12 @@ import { ListItem, ListItemButton, ListItemText } from "@mui/material";
 export default function InterfaceMethodsList(props) {
   function interfaceMethodClick(clickedID) {
     const newInterfaces = props.interfaceDetails
-    Object.entries(props.interfaceDetails).forEach((key, value) => {
-      if (key[0] == clickedID) {
-        newInterfaces[key[0]].selected = true
-        props.setInterfaceMethod(key)
+    Object.entries(props.interfaceDetails).forEach((value) => {
+      if (value[0] == clickedID) {
+        newInterfaces[value[0]].selected = true
+        props.setInterfaceMethodSelected(value[0])
       } else {
-        newInterfaces[key[0]].selected = false
+        newInterfaces[value[0]].selected = false
       }
     })
     props.setInterfaceDetails({...newInterfaces})

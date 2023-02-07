@@ -13,7 +13,8 @@ export default function InterfacesList(props) {
         if (key === Number(clickedID)) {
           // Clicked the opened interface a second time. Close it
           value.selected = false
-          props.setInterfaceSelected()
+          props.setInterfaceSelected(false)
+          props.setInterfaceMethodSelected(false)
           return value
         }
         // Resetting old selected value
@@ -22,6 +23,7 @@ export default function InterfacesList(props) {
       if (key === Number(clickedID)) {
         value.selected = true
         props.setInterfaceSelected(value.name)
+        props.setInterfaceMethodSelected(false)
         return value
       } else {
         return value
@@ -55,7 +57,7 @@ export default function InterfacesList(props) {
                   interfaceDetails={props.interfaceDetails}
                   setInterfaceDetails={props.setInterfaceDetails}
                   setInterfaceSelected={props.setInterfaceSelected}
-                  setInterfaceMethod={props.setInterfaceMethod}
+                  setInterfaceMethodSelected={props.setInterfaceMethodSelected}
                 />
               }
             </Fragment>

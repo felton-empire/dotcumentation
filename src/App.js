@@ -19,7 +19,7 @@ export default function App() {
   const [interfaceCategorySelected, setInterfaceCategorySelected] = useState(interfaceCategoryList[0].endpoint)
   const [interfaceDetails, setInterfaceDetails] = useState(false)
   const [interfaceSelected, setInterfaceSelected] = useState(false)
-  const [interfaceMethod, setInterfaceMethod] = useState(false)
+  const [interfaceMethodSelected, setInterfaceMethodSelected] = useState(false)
 
   useEffect(() => {
     async function connectApi() {
@@ -45,7 +45,10 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ flexgrow: 1, display: "flex" }}>
+      <Box sx={{
+        flexgrow: 1,
+        display: "flex",
+      }}>
         <AppBar position="fixed" sx={{
           zIndex: (theme) => theme.zIndex.drawer + 1
         }}>
@@ -87,14 +90,14 @@ export default function App() {
           setInterfaceSelected={setInterfaceSelected}
           interfaceDetails={interfaceDetails}
           setInterfaceDetails={setInterfaceDetails}
-          setInterfaceMethod={setInterfaceMethod}
+          setInterfaceMethodSelected={setInterfaceMethodSelected}
         />
         <Box component="main" sx={{
           flexgrow:1, p: 2
         }}>
           <Toolbar />
           <InterfaceMethod
-            interfaceMethod={interfaceMethod}
+            interfaceMethodSelected={interfaceMethodSelected}
             interfaceDetails={interfaceDetails}
             interfaceSelected={interfaceSelected}
           />
