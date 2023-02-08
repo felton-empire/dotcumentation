@@ -1,4 +1,4 @@
-import { MenuItem, TextField } from "@mui/material";
+import { MenuItem, TextField, Tooltip } from "@mui/material";
 
 export default function ApiDropdown(props){
   function selectApi(event) {
@@ -11,7 +11,7 @@ export default function ApiDropdown(props){
   }
 
   return (
-    <TextField sx={{ minWidth: 200}}
+    <TextField sx={{ minWidth: 200 }}
                id="selectedAPI"
                size="small"
                select
@@ -21,10 +21,16 @@ export default function ApiDropdown(props){
     >
       {
         props.apiEndpoints.map((api) => (
-          <MenuItem key={api.name}
-                    value={api.endPoint}
-          >
-            {api.name}
+          <MenuItem value={api.endPoint} key={api.name}>
+            <Tooltip
+              value={api.endPoint}
+              key={api.name}
+              title={api.endPoint}
+              placement="right"
+              arrow
+            >
+              <div>{api.name}</div>
+            </Tooltip>
           </MenuItem>
         ))
       }
