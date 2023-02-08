@@ -1,13 +1,4 @@
-import {
-  Typography,
-  Box,
-  ToggleButton,
-  FormGroup,
-  FormControlLabel,
-  Switch,
-  Paper,
-  Card,
-} from "@mui/material";
+import { Box, FormGroup, FormControlLabel, Switch, } from "@mui/material";
 import { useState } from "react";
 import InterfaceMethodDetails from "./InterfaceMethodDetails";
 

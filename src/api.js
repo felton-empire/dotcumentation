@@ -17,7 +17,7 @@ export async function setupApi(apiObject) {
   if (apiObject.api === undefined) {
     // New connection
     return await connect()
-  } else if ( apiObject.endpoint != apiObject.provider.__private_8_endpoints[0] ) {
+  } else if ( apiObject.endpoint !== apiObject.provider.__private_8_endpoints[0] ) {
     // New endpoint selected
     await apiObject.provider.disconnect()
     return await connect()

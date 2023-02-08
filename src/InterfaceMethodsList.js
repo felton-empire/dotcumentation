@@ -4,7 +4,7 @@ export default function InterfaceMethodsList(props) {
   function interfaceMethodClick(clickedID) {
     const newInterfaces = props.interfaceDetails
     Object.entries(props.interfaceDetails).forEach((value) => {
-      if (value[0] == clickedID) {
+      if (value[0] === clickedID) {
         newInterfaces[value[0]].selected = true
         props.setInterfaceMethodSelected(value[0])
       } else {
