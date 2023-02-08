@@ -2,6 +2,12 @@
 
 Quickly read javascript API documentation on various Polkadot/Kusama chains
 
+Try it out at: <https://felton-empire.github.io/dotcumentation/>
+
+### Built With
+- [React](https://reactjs.org/)
+- [MaterialUI](https://mui.com/)
+
 ## Author
 Ivan Stanojevic - Founder - Felton Empire Incorporated
 
