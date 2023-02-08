@@ -1,4 +1,4 @@
-# Dotcumentation
+# DOTcumentation
 
 Quickly read javascript API documentation on various Polkadot/Kusama chains
 
