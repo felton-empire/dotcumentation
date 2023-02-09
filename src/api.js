@@ -1,11 +1,21 @@
 import { ApiPromise, WsProvider } from "@polkadot/api";
 import { options as acalaOptions } from "@acala-network/api";
+import { typesBundlePre900 } from "moonbeam-types-bundle";
+import { options as parallelOptions } from "@parallel-finance/api"
 
 export async function setupApi(apiObject) {
   async function connect() {
-    //TODO need to account for different apis for different endpoints... use an array
+    let api = {}
     const provider = await new WsProvider(apiObject.endpoint);
-    const api = await new ApiPromise(acalaOptions({provider}));
+    if (apiObject.endpoint.includes("acala") || apiObject.endpoint.includes("karura")) {
+      api = await new ApiPromise(acalaOptions({provider}));
+    } else if (apiObject.endpoint.includes("moonbeam") || apiObject.endpoint.includes("moonriver")) {
+      api = await new ApiPromise({provider: provider, typesBundle: typesBundlePre900})
+    } else if (apiObject.endpoint.includes("parallel")) {
+      api = await new ApiPromise(parallelOptions({provider}));
+    } else {
+      api = await new ApiPromise({provider: provider})
+    }
     const readyApi = await api.isReadyOrError
     return {
       api: readyApi,

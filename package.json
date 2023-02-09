@@ -9,13 +9,16 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.8",
-    "@polkadot/api": "^9.10.3",
+    "@parallel-finance/api": "^1.7.14",
+    "@polkadot/api": "^9.13.6",
+    "@polkadot/types-create": "^9.13.6",
+    "@polkadot/types-codec": "^9.13.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "moonbeam-types-bundle": "^2.0.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -23,7 +26,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "yarn run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
@@ -45,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "react-scripts": "5.0.1",
     "gh-pages": "^5.0.0"
   }
 }
