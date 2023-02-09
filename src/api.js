@@ -3,9 +3,13 @@ import { options as acalaOptions } from "@acala-network/api";
 
 export async function setupApi(apiObject) {
   async function connect() {
-    //TODO need to account for different apis for different endpoints... use an array
+    let api = {}
     const provider = await new WsProvider(apiObject.endpoint);
-    const api = await new ApiPromise(acalaOptions({provider}));
+    if (apiObject.endpoint.includes("acala")) {
+      api = await new ApiPromise(acalaOptions({provider}));
+    } else {
+        api = await new ApiPromise({provider: provider})
+    }
     const readyApi = await api.isReadyOrError
     return {
       api: readyApi,
