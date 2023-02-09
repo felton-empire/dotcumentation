@@ -58,4 +58,16 @@ export const interfaceCategoryList = [
     name: "Events",
     endpoint: "api.events"
   },
+  {
+    name: "Runtime",
+    endpoint: "api.call"
+  },
+  {
+    name: "JSON-RPC",
+    endpoint: "api.rpc"
+  },
+  {
+    name: "Errors",
+    endpoint: "api.errors"
+  }
 ]
