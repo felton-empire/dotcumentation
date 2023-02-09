@@ -1,5 +1,6 @@
 import { ApiPromise, WsProvider } from "@polkadot/api";
 import { options as acalaOptions } from "@acala-network/api";
+import { typesBundlePre900 } from "moonbeam-types-bundle";
 
 export async function setupApi(apiObject) {
   async function connect() {
@@ -7,8 +8,10 @@ export async function setupApi(apiObject) {
     const provider = await new WsProvider(apiObject.endpoint);
     if (apiObject.endpoint.includes("acala")) {
       api = await new ApiPromise(acalaOptions({provider}));
+    } else if (apiObject.endpoint.includes("moonbeam") || apiObject.endpoint.includes("moonriver")){
+      api = await new ApiPromise({provider: provider, typesBundle: typesBundlePre900})
     } else {
-        api = await new ApiPromise({provider: provider})
+      api = await new ApiPromise({provider: provider})
     }
     const readyApi = await api.isReadyOrError
     return {
