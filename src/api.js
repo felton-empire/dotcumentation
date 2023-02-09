@@ -1,15 +1,18 @@
 import { ApiPromise, WsProvider } from "@polkadot/api";
 import { options as acalaOptions } from "@acala-network/api";
 import { typesBundlePre900 } from "moonbeam-types-bundle";
+import { options as parallelOptions } from "@parallel-finance/api"
 
 export async function setupApi(apiObject) {
   async function connect() {
     let api = {}
     const provider = await new WsProvider(apiObject.endpoint);
-    if (apiObject.endpoint.includes("acala")) {
+    if (apiObject.endpoint.includes("acala") || apiObject.endpoint.includes("karura")) {
       api = await new ApiPromise(acalaOptions({provider}));
-    } else if (apiObject.endpoint.includes("moonbeam") || apiObject.endpoint.includes("moonriver")){
+    } else if (apiObject.endpoint.includes("moonbeam") || apiObject.endpoint.includes("moonriver")) {
       api = await new ApiPromise({provider: provider, typesBundle: typesBundlePre900})
+    } else if (apiObject.endpoint.includes("parallel")) {
+      api = await new ApiPromise(parallelOptions({provider}));
     } else {
       api = await new ApiPromise({provider: provider})
     }
