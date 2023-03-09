@@ -100,6 +100,7 @@ export default function App() {
             interfaceMethodSelected={interfaceMethodSelected}
             interfaceDetails={interfaceDetails}
             interfaceSelected={interfaceSelected}
+            interfaceCategorySelected={interfaceCategorySelected}
           />
         </Box>
       </Box>

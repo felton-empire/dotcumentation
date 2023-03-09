@@ -36,6 +36,7 @@ export default function InterfaceMethodDetails(props) {
         <InterfaceMethodMeta
           interfaceDetails={props.interfaceDetails}
           interfaceMethodSelected={props.interfaceMethodSelected}
+          interfaceCategorySelected={props.interfaceCategorySelected}
         />
       }
     </Card>
