@@ -1,5 +1,5 @@
-import {Typography} from "@mui/material";
 import YAML from "yaml";
+import ReactMarkdown from "react-markdown";
 
 export default function InterfaceMethodRPCDetail(props) {
   let metadata_string = JSON.stringify(props.metadata)
@@ -13,7 +13,7 @@ export default function InterfaceMethodRPCDetail(props) {
 
   return(
     <>
-      <Typography>{props.metadata.description}</Typography>
+      <ReactMarkdown>{props.metadata.description}</ReactMarkdown>
       <pre>{YAML.stringify(json_metadata)}</pre>
     </>
   )

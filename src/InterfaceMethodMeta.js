@@ -10,7 +10,7 @@ export default function InterfaceMethodMeta(props) {
     case "api.consts":
       return(
         <InterfaceMethodConstsDetail {...props}
-          docs={metadata.docs.toHuman()}
+          docs={metadata.docs}
         />
       )
     case "api.query":
