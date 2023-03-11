@@ -8,6 +8,9 @@ Try it out at: <https://felton-empire.github.io/dotcumentation/>
 - [React](https://reactjs.org/)
 - [MaterialUI](https://mui.com/)
 
+## Changes, Feature Requests, and Bugs
+Please post in the issues section of Github
+
 ## Author
 Ivan Stanojevic - Founder - Felton Empire Incorporated
 
