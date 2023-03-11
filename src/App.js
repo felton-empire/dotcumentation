@@ -76,6 +76,8 @@ export default function App() {
                   api={api}
                   setInterfaceCategorySelected={setInterfaceCategorySelected}
                   setInterfaces={setInterfaces}
+                  setInterfaceDetails={setInterfaceDetails}
+                  setInterfaceMethodSelected={setInterfaceMethodSelected}
                   interfaceCategorySelected={interfaceCategorySelected}
                 />
               </Grid>

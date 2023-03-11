@@ -19,6 +19,8 @@ export default function InterfaceCategoryDropdown(props) {
 
   function selectInterface(event) {
     props.setInterfaceCategorySelected(event.target.value)
+    props.setInterfaceDetails(false)
+    props.setInterfaceMethodSelected(false)
   }
 
   return (
