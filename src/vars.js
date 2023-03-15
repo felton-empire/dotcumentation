@@ -38,6 +38,16 @@ export const apiList =[
     name: "Heiko",
     endPoint: "wss://heiko-rpc.parallel.fi",
     selected: false
+  },
+  {
+    name: "Interlay",
+    endPoint: "wss://api.interlay.io:443/parachain",
+    selected: false
+  },
+  {
+    name: "Kintsugi",
+    endPoint: "wss://api-kusama.interlay.io:443/parachain",
+    selected: false
   }
 ]
 
